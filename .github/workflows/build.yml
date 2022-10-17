@@ -2,7 +2,9 @@ name: Build
 on:
   push:
     branches:
-      - main # or the name of your main branch
+      - main
+  pull_request_target:
+    types: [opened, synchronize, reopened]
 
 jobs:
   build:
@@ -33,4 +35,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=areebniyas_codeWithBugsLocal_AYPlb-Wj5KJ16X-LP7sv
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=areebniyas_codeWithBugsLocal_AYPlb-Wj5KJ16X-LP7sv -Dsonar.pullrequest.key=${{ github.event.pull_request.number }}
