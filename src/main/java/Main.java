@@ -1,5 +1,8 @@
 public class Main {
     public static void main(String[] args) {
+        
+        int i = 0;
+        
         try{
             System.out.println("Finally block cant be null bug");
         }catch (Exception e){
