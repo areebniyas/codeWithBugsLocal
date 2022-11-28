@@ -8,7 +8,7 @@ jobs:
   info:
     name: PR Info
     runs-on: ubuntu-latest
-      steps:
-      - run: |
+    steps:
+      - run: |  
           echo GITHUB PULL REQUEST NUMBER ${{ github.event.pull_request.number }} nd EVENT ISSUE NUMBER ${{ github.event.issue.number }}
           echo GITHUB SHA ${{github.event.pull_request.head.sha }}
