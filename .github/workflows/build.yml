@@ -1,7 +1,5 @@
 name: SonarCloud
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
   issue_comment:
     types: [created]
 jobs:
@@ -13,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-          ref: ${{ github.event.pull_request.head.sha }} # Check out the code of the PR
+          ref: ${{ github.event.issue.pull_request.head.sha }} # Check out the code of the PR
       - name: Set up JDK 11
         uses: actions/setup-java@v1
         with:
@@ -34,4 +32,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=areebniyas_codeWithBugsLocal -Dsonar.pullrequest.key=${{ github.event.pull_request.number }}
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=areebniyas_codeWithBugsLocal -Dsonar.pullrequest.key=${{ github.event.issue.pull_request.number }}
