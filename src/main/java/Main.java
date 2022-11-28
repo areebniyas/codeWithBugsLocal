@@ -3,6 +3,7 @@ public class Main {
         
         int i = 0;
         int b = 0;
+        int varFromAnotherBranch;
         
         try{
             System.out.println("Finally block cant be null bug");
@@ -18,7 +19,4 @@ public class Main {
         return i;
     }
 
-     public int secondBranchInput(int i){
-        return i;
-    }
 }
