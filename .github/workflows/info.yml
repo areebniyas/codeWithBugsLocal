@@ -1,4 +1,4 @@
-name: SonarCloud
+name: Getting SHA
 on:
   push:
     branches: [main]
