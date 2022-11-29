@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo GITHUB PULL REQUEST NUMBER ${{ github.event.issue.pull_request.number }} nd EVENT ISSUE NUMBER ${{ github.event.issue.number }}
+          echo GITHUB EVENT AUTHOR IS: ${{ github.event.issue.user.login }} nd EVENT ISSUE NUMBER ${{ github.event.issue.number }} AND $NUMBER
         env:
           NUMBER: ${{ github.event.issue.number }}
+          NAME: ${{ github.event.issue.user.login }}
+          
+      - run: |
+          echo $NUMBER AND $NAME
