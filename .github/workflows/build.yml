@@ -6,7 +6,7 @@ on:
     types: [created]
 jobs:
   build:
-    if: ${{ github.event.issue.pull_request }} && ${{  github.event.comment.body == 'run analysis' }}
+    if: ${{ github.event.issue.pull_request && github.event.comment.body == 'run analysis' }}
     name: Build and analyze
     runs-on: ubuntu-latest
     steps:
