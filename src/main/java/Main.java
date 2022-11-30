@@ -3,6 +3,7 @@ public class Main {
         
         int i = 0;
         int b = 0;
+        int branchToGetInfo;
         
         try{
             System.out.println("Finally block cant be null bug");
