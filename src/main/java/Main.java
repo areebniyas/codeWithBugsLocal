@@ -5,6 +5,7 @@ public class Main {
         int b = 0;
         
         try{
+            int varFromFork = 0;
             System.out.println("Finally block cant be null bug");
         }catch (Exception e){
 
