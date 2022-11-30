@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo GITHUB EVENT AUTHOR IS: ${{ github.event.comment.author_association }} nd EVENT ISSUE NUMBER ${{ github.event.issue.author_association }}
+          echo GITHUB COMMENT AUTHOR IS: ${{ github.event.comment.author_association }} AND EVENT ISSUE AUTHOR IS: ${{ github.event.issue.author_association }}
         env:
           NUMBER: ${{ github.event.issue.number }}
           NAME: ${{ github.event.issue.user.login }}
